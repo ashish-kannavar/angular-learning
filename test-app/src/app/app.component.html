@@ -1,0 +1,16 @@
+<h1>Welcome to {{title}}</h1>
+
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Category</th>
+    <th>Price</th>
+  </tr>
+  <tr *ngFor="let itm of mnu; index as i">
+      <td>{{itm.dish}}</td>
+      <td>{{itm.category}}</td>
+      <td>{{itm.price}}</td>
+  </tr>
+</table>
+
