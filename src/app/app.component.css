@@ -1,0 +1,14 @@
+section{
+    border : 2px grey solid;
+    margin-bottom: 1em;
+    padding: 0 1 em;
+    border-radius: .5em;
+}
+.candidate{
+    margin-bottom: .5em;
+}
+.bar{
+    height:1em;
+    border-radius: .2em;
+    border : 2px grey solid; 
+}

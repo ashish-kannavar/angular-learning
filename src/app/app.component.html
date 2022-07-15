@@ -1,0 +1,92 @@
+<section>
+  <div *ngIf = "!displayEdit">
+    <div>
+      name: {{usr.name}}
+    </div>
+    <div>
+      age: {{usr.age}}
+    </div>
+    <div>
+      favoriteColor: {{usr.favoriteColor}}
+    </div>
+  </div>
+
+  <div *ngIf = "displayEdit">
+    <form #myForm="ngForm" (ngSubmit)="saveChanges(myForm)">
+      <p>
+        <label for="name" class="input-label">Name:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="usr.name" />
+      </p>
+      <p>
+        <label for="name" class="input-label">Age:</label>
+        <input type="text" id="name" name="age" [(ngModel)]="usr.age" />
+      </p>
+      <p>
+        <label for="name" class="input-label">Favorite Color:</label>
+        <input type="text" id="name" name="favoriteColor" [(ngModel)]="usr.favoriteColor" />
+      </p>
+      <button type ="submit">saveChanges</button>
+      
+    </form>
+  </div>
+  <div>
+    <button (click)="toggleEdit()">Toggle Edit</button>
+  </div>
+</section>
+
+<section>
+  <h2>Counter</h2>
+  <p>{{count}}</p>
+  <p>
+    <button type = "button" (click)="countUp()">Count Up</button>
+    <button type = "button" (click)="addCount(10)" >Count Up by 10</button>
+    <button type = "button" (click)="addCount(-1)">Count Down</button>
+    <button type = "button" (click)="count=0">Reset</button>
+  </p>
+
+</section>
+
+<section>
+  <h2>Votes Tally</h2>
+  <div *ngFor="let candidate of candidates">
+    {{candidate.name}}: {{candidate.votes}}
+    <div class="bar" [ngStyle]="{ backgroundColor: candidate.color, width: candidate.votes*20 +'px'}"></div>
+
+  </div>
+
+</section>
+
+<section>
+  <h2>Vote</h2>
+  <p>
+    <button type = "button" *ngFor="let candidate of candidates; index as i" (click)="addVote(i)">Vote for {{candidate.name}}</button>
+    
+  </p>
+
+</section>
+
+
+<section>
+  <h2>Add a Candidate</h2>
+  <form (ngSubmit)="addCandidate()">
+    <p>
+      <label for="name" class="input-label">Name:</label>
+      <input type="text" id="name" name="name" [(ngModel)]="formCandidate.name" />
+    </p>
+    <p>
+      <label class="input-label">Color:</label>
+      <label>
+        <input type="radio" name="color" value="green" [(ngModel)]="formCandidate.color" /> Green
+      </label>
+      <label>
+        <input type="radio" name="color" value="BlanchedAlmond" [(ngModel)]="formCandidate.color" /> Almond
+      </label>
+      <label>
+        <input type="radio" name="color" value="purple" [(ngModel)]="formCandidate.color" /> Purple
+      </label>
+    </p>
+    <p>
+      <button type="submit">Add</button>
+    </p>
+  </form>
+</section>
