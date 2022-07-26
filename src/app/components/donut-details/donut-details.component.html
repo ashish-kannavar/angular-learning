@@ -1,0 +1,19 @@
+<!-- <p *ngIf="donut">
+    calories: {{ donut.calories }}
+  </p> -->
+
+
+  <div *ngIf="donut">
+    <h2>{{ donut.name }}</h2>
+    <p>
+      <button>Add to Cart</button>
+    </p>
+    <img src="{{donut.photo}}" alt="">
+    <p>
+      Calories: {{donut.calories}}
+    </p>
+    <p>
+      Details: <span *ngFor="let extra of donut.extras; last as last">{{extra}}{{!last ? ', ' : ''}}</span>
+    </p>
+  </div>
+  <div *ngIf="!donut">Loading...</div>

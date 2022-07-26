@@ -1,0 +1,4 @@
+<li *ngFor="let donut of results">
+    <!-- <h2 >{{ donut.name }}</h2> -->
+    <a [routerLink]="['/details', donut.id]">{{ donut.name }}</a>
+  </li>
